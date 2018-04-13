@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "tsc": "tsc -w",
+    "ts": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
