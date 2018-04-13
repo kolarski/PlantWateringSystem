@@ -1,5 +1,5 @@
 export default interface SensorInterface {
-    getReading() : number;
+    getReading(callback: Function) : number;
     getName() : string;
     setName(name: string): void;
     changeMonitorInterval(monitorIntervalInMillisecounds: number) : void; 
