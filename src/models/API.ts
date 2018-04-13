@@ -34,6 +34,10 @@ export default class API {
                         href : "/sensors"
                     },
                     {
+                        text: 'Get hardware information',
+                        href : "/system"
+                    },
+                    {
                         text: 'Get logs',
                         href : "/logs"
                     },
@@ -50,6 +54,24 @@ export default class API {
                 data[sensor.getName()] = sensor.lastMeasurement;
             });
             res.json({ data });
+        }.bind(this));
+        this.api.get("/system", function(req: any, res: any) {
+            const si = require('systeminformation');
+            const data: any = {};
+            si.cpu(function(d: any) {
+                data.cpu = d;
+                si.system(function(d: any) {
+                    data.system = d;
+                    si.cpuTemperature(function(d: any) {
+                        data.cpuTemp = d;
+                        si.fsSize(function(d: any) {
+                            data.hdd = d;
+                            res.json({ data });
+                        });
+                    });
+                });
+            });
+            
         }.bind(this));
         this.api.get("/logs", function(req: any, res: any) {
             glob("logs/*.log", function (err: Error, files: Array<any>) {
