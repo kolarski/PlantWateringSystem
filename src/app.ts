@@ -17,8 +17,8 @@ pws.addWaterPump('radish', waterPump);
 // const tempSensor2 = new TemperatureSensor(2000);
 // pws.addSensor('moistureTempSensor2', tempSensor2);
 
-const luxSensor = new LuxSensor(5000);
-pws.addSensor('luxSensor1', luxSensor);
+const luxSensor = new LuxSensor('luxSensor1', 5000);
+pws.addSensor(luxSensor);
 
 const conf = pws.getConfiguration();
 console.log(conf);

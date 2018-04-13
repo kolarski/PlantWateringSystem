@@ -1,7 +1,7 @@
 import WaterPump from "./models/WaterPump";
 import WateringPolicy from "./models/WateringPolicy";
-import Sensor from "./models/Sensor";
-import SensorInterface from "./models/SensorInterface";
+import Sensor from "./models/sensors/Sensor";
+import SensorInterface from "./models/sensors/SensorInterface";
 
 export default class PlantWateringSystem {
     waterPumps: {[name: string]: WaterPump} = {};
@@ -42,8 +42,8 @@ export default class PlantWateringSystem {
         }
         this.waterPumps[name] = waterPump;
     }
-    addSensor(name: string, sensor: SensorInterface) {
-        sensor.setName(name);
+    addSensor(sensor: SensorInterface) {
+        const name = sensor.getName();
         if(typeof this.sensors[name] !== 'undefined') {
             throw new Error(`Sensor with the same name (${name}) already exists`);
         }

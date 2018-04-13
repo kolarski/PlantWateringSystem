@@ -1,5 +1,5 @@
-import Sensor from "../Sensor";
-import SensorInterface from "../SensorInterface";
+import Sensor from "./Sensor";
+import SensorInterface from "./SensorInterface";
 
 const os = require('os');
 const fs = require('fs');
@@ -8,8 +8,8 @@ const TSL2561 = require('tsl2561_node');
 export default class LuxSensor extends Sensor implements SensorInterface {
     sensor: any;
     initCompleted: boolean = false;
-    constructor(monitorIntervalInMillisecounds?: number) {
-        super(monitorIntervalInMillisecounds);
+    constructor(name: string, monitorIntervalInMillisecounds?: number) {
+        super(name, monitorIntervalInMillisecounds);
         this.sensor = new TSL2561();
         this.sensor.init();
         this.sensor.on('sensorInitCompleted', this.sensorInitCompleted);
