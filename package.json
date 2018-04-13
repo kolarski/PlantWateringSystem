@@ -1,0 +1,23 @@
+{
+  "name": "plant",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "tsc": "tsc -w",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@bitbucket.org/kolarski/plant.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "homepage": "https://bitbucket.org/kolarski/plant#readme",
+  "dependencies": {
+    "@types/node": "^9.6.4",
+    "johnny-five": "^0.14.3",
+    "typescript": "^2.8.1"
+  }
+}
