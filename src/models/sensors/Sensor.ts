@@ -1,10 +1,11 @@
 import EventBus from "../EventBus";
+import SensorMeasurement from "./SensorMeasurement";
 
 export default class Sensor {
     name: string;
     monitoring: any;
     eventBus: EventBus;
-    lastMeasurement: any;
+    lastMeasurement: SensorMeasurement;
     constructor(name: string, monitorIntervalInMillisecounds?: number) {
         if(typeof monitorIntervalInMillisecounds !== 'undefined') {
             this.initializeSensorMonitoring(monitorIntervalInMillisecounds);
@@ -20,7 +21,7 @@ export default class Sensor {
             try {
                this.getReading((data: number) => {
                     this.eventBus.emitter.emit('reading', data);
-                    this.lastMeasurement = data;
+                    this.lastMeasurement = new SensorMeasurement(data);
                 });
             } catch (e) {
                 console.log(e);

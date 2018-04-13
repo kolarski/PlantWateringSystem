@@ -4,6 +4,7 @@ import Relay from './models/Relay';
 import WateringPolicy from './models/WateringPolicy';
 import TemperatureSensor from './models/sensors/TemperatureSensor';
 import LuxSensor from './models/sensors/LuxSensor';
+import API from './models/API';
 
 const wateringPolicy = new WateringPolicy();
 
@@ -25,6 +26,7 @@ console.log(conf);
 
 pws.water('radish', 10);
 
+const web = new API(pws);
 
 // const status = pws.getStatus();
 // console.log(status);
