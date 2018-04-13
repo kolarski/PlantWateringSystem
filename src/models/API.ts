@@ -2,9 +2,10 @@ import PlantWateringSystem from "../PlantWateringSystem";
 import SensorInterface from "./sensors/SensorInterface";
 import SensorMeasurement from "./sensors/SensorMeasurement";
 
-const express = require("express");
-const bodyParser = require("body-parser");
-const glob = require("glob");
+const express = require('express');
+const bodyParser = require('body-parser');
+const glob = require('glob');
+const os = require('os');
 
 export default class API {
     pws: PlantWateringSystem;
@@ -21,6 +22,12 @@ export default class API {
             res.json({
                 "name": "Plant Watering System 1.0",
                 "author": "Alex Kolarski",
+                "system": {
+                    type: os.type(),
+                    platform: os.platform(),
+                    arch: os.arch()
+                },
+                date: new Date(),
                 "endpoints" : [
                     {
                         text: 'Get current sensor status information',
