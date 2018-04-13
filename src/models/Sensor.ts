@@ -9,7 +9,7 @@ export default class Sensor {
             this.initializeSensorMonitoring(monitorIntervalInMillisecounds);
         }
         this.eventBus = EventBus.getInstance(this.constructor.name);
-        this.eventBus.emitter.on('temp', (temp: number) => {
+        this.eventBus.emitter.on('reading', (temp: number) => {
             console.log(`Emitting event from sensor ${this.name} of type (${this.constructor.name}) with eventName: 'temp' and value ${temp}`);
         });
     }
@@ -17,7 +17,7 @@ export default class Sensor {
         this.monitoring = setInterval(function () {
             try {
                this.getReading((data: number) => {
-                    this.eventBus.emitter.emit('temp', data);
+                    this.eventBus.emitter.emit('reading', data);
                 });
             } catch (e) {
                 console.log(e);

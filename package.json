@@ -17,6 +17,7 @@
   "homepage": "https://bitbucket.org/kolarski/plant#readme",
   "dependencies": {
     "@types/node": "^9.6.4",
+    "tsl2561_node": "git+ssh://git@github.com:nage-son/tsl2561_node.git",
     "johnny-five": "^0.14.3",
     "typescript": "^2.8.1"
   }
