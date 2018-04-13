@@ -1,7 +1,12 @@
 # Plant watering system
-This is little project that handles watering my garden. 
+This is little project that handles watering my garden.
 
-More info and pictures to come..
+## Few photos
 <p align="center">
-  <img src="http://contest-bg.net/pws/IMG_20180411_211905.jpg" width="450"/>
+  <img src="http://contest-bg.net/pws/1.jpg" width="350" /> <br />
+  <img src="http://contest-bg.net/pws/2.jpg" width="350" /> <br />
+  <img src="http://contest-bg.net/pws/3.jpg" width="350" /> <br />
 </p>
+
+
+### More info and pictures to come..
