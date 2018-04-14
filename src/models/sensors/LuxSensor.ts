@@ -22,7 +22,7 @@ export default class LuxSensor extends Sensor implements SensorInterface {
             this.sensor.on('sensorInitCompleted', function(eventData: any) {
                 console.log('finished', this);
                 this.sensorInitCompleted(eventData);
-            });
+            }.bind(this));
             this.sensor.on('sensorInitFailed', this.sensorInitFailed);
         } else {
             console.error('No TSL256 module');
