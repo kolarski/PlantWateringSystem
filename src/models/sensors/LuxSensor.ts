@@ -6,7 +6,7 @@ const fs = require('fs');
 let isThereTSL256module = true;
 let TSL2561: any;
 try {
-    TSL2561 = require('tsl2561_node');
+    TSL2561 = require('sensor_tsl2561');
 } catch (e) {
     console.log(e);
     isThereTSL256module = false;
