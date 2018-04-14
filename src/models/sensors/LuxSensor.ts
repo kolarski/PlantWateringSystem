@@ -8,6 +8,7 @@ let TSL2561: any;
 try {
     TSL2561 = require('tsl2561_node');
 } catch (e) {
+    console.log(e);
     isThereTSL256module = false;
 }
 export default class LuxSensor extends Sensor implements SensorInterface {
@@ -23,6 +24,8 @@ export default class LuxSensor extends Sensor implements SensorInterface {
                 this.sensorInitCompleted(eventData);
             });
             this.sensor.on('sensorInitFailed', this.sensorInitFailed);
+        } else {
+            console.error('No TSL256 module');
         }
     }
     sensorInitCompleted(eventData: any){
